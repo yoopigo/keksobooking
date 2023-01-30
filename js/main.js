@@ -21,7 +21,20 @@ const DESCRIPTION = [
   'Экономный номер с одной кроватью',
 ];
 
-let features = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator'];
+let FEATURES = [
+  'wifi',
+  'dishwasher',
+  'parking',
+  'washer',
+  'elevator',
+  'conditioner',
+];
+
+const PHOTOS = [
+  'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
+  'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
+  'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
+];
 
 const ROOMS = {
   MIN: 1,
@@ -48,16 +61,44 @@ const LOCATIONY = {
   MAX: 139.8,
 };
 
-const FEATURESCOUNT = {
+const FEATURES_COUNT = {
+  MIN: 3,
+  MAX: 8,
+};
+
+const PHOTOS_COUNT = {
   MIN: 1,
-  MAX: 5,
+  MAX: 4,
 };
 
 const similarProfile = [];
 
-//  Взятие рамдомного элемента массива
+//Функция взятия рандомного мин, макс значения)
+const quantity = (arr) => {
+  return _.random(arr.MIN, arr.MAX);
+};
+
+//  Функия рамдомного элемента массива
 const getRandomArrayElement = (elements) => {
   return elements[_.random(0, elements.length - 1)];
+};
+
+// Функция для взятия рандомного количества рандомных элементов массива и удаления дублей
+const randomMassiveElements = (arr, randomCount) => {
+  const amount = quantity(randomCount);
+  const createArray = [];
+  const uniqueArray = [];
+
+  for (let i = 0; i < amount; i++) {
+    createArray.push(getRandomArrayElement(arr));
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqueArray.indexOf(createArray[i]) === -1) {
+      uniqueArray.push(createArray[i]);
+    }
+  }
+  return uniqueArray.filter((item) => item !== undefined);
 };
 
 // Функция создания рандомного профиля
@@ -70,6 +111,10 @@ const createProfile = () => {
 
     similarProfile.push({
       author: { avatar: avatarCount + i },
+      location: {
+        x: _.random(LOCATIONX.MIN, LOCATIONX.MAX),
+        y: _.random(LOCATIONY.MIN, LOCATIONY.MAX),
+      },
       offer: {
         title: 'Лучший номер ' + i,
         address: _.random(1.1, 9.9) + ', ' + _.random(1.2, 9.9),
@@ -80,14 +125,8 @@ const createProfile = () => {
         checkin: getRandomArrayElement(CHECKIN),
         checkout: getRandomArrayElement(CHECKIN),
         description: getRandomArrayElement(DESCRIPTION),
-        features: [
-          getRandomArrayElement(features),
-          getRandomArrayElement(features),
-        ],
-      },
-      location: {
-        x: _.random(LOCATIONX.MIN, LOCATIONX.MAX),
-        y: _.random(LOCATIONY.MIN, LOCATIONY.MAX),
+        features: randomMassiveElements(FEATURES, FEATURES_COUNT),
+        photos: randomMassiveElements(PHOTOS, PHOTOS_COUNT),
       },
     });
   }
