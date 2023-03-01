@@ -4,6 +4,5 @@
 'use strict';
 
 import { createProfile, similarProfile } from './data.js';
-
-createProfile();
-console.log(similarProfile);
+import './popup.js';
+import './data.js';

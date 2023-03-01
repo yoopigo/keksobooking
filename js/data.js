@@ -5,7 +5,7 @@
 
 import { getRandomArrayElement, randomMassiveElements } from './util.js';
 
-const COUNT = 10;
+const COUNT = 1;
 
 const TYPE = ['palace', 'flat', 'house', 'bungalow'];
 
