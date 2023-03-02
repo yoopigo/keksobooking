@@ -11,7 +11,7 @@ const templateCard = document
   .querySelector('#card')
   .content.querySelector('.popup');
 
-const createProfileElement = createProfile();
+createProfile();
 
 // Создание элементов букинга
 

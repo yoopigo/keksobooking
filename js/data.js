@@ -7,7 +7,7 @@ import { getRandomArrayElement, randomMassiveElements } from './util.js';
 
 const COUNT = 1;
 
-const TYPE = ['palace', 'flat', 'house', 'bungalow'];
+const TYPE = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 
 const CHECKIN = ['12:00', '13:00', '14:00'];
 
