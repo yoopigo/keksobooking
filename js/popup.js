@@ -63,5 +63,5 @@ similarProfile.forEach((element) => {
 
   newElement.querySelector('.popup__avatar').src = element.author.avatar;
 
-  windowMap.appendChild(newElement);
+  /*   windowMap.appendChild(newElement); */
 });

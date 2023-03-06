@@ -6,3 +6,4 @@
 import './popup.js';
 import './data.js';
 import './scenarios.js';
+import './map.js';
