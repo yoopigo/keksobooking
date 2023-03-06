@@ -20,13 +20,22 @@ selects.forEach((select) => {
 //Добавление карты
 
 let map = L.map('map-canvas')
+  // Включить отображение и возможность взаимодействия с элементами сайта после загрузки карты.
   .on('load', () => {
-    console.log('map loaded');
+    adForm.classList.remove('ad-form--disabled');
+    mapFilters.classList.remove('ad-form--disabled');
+
+    fieldsets.forEach((fieldset) => {
+      fieldset.removeAttribute('disabled');
+    });
+    selects.forEach((select) => {
+      select.removeAttribute('disabled');
+    });
   })
   .setView(
     {
-      lat: 59.92749,
-      lng: 30.31127,
+      lat: 35.693257187714124,
+      lng: 139.76969549897262,
     },
     10
   );
