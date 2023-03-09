@@ -34,8 +34,8 @@ let map = L.map('map-canvas')
   })
   .setView(
     {
-      lat: 35.693257187714124,
-      lng: 139.76969549897262,
+      lat: 35.69325,
+      lng: 139.76969,
     },
     10
   );
@@ -43,4 +43,39 @@ let map = L.map('map-canvas')
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>',
 }).addTo(map);
+
+//Добавление меток
+
+const mainPinIcon = L.icon({
+  iconUrl: '/img/leaflet/main-pin.svg',
+  iconSize: [52, 52],
+  iconAnchor: [26, 52],
+});
+
+const mainPinMarker = L.marker(
+  {
+    lat: 35.693257187714124,
+    lng: 139.76969549897262,
+  },
+  {
+    draggable: true,
+    icon: mainPinIcon,
+  }
+);
+
+mainPinMarker.addTo(map);
+
+// Евент передвижения
+
+const inputAdress = document.querySelector('#address');
+inputAdress.value = '35.69325, 139.76969';
+inputAdress.setAttribute('disabled', true);
+
+mainPinMarker.on('move', (evt) => {
+  const marker = evt.target;
+  const position = marker.getLatLng();
+  inputAdress.value = `${position.lat.toFixed(5)}, ${position.lng.toFixed(5)}`;
+});

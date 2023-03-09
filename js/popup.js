@@ -5,8 +5,6 @@
 
 import { createProfile, similarProfile } from './data.js';
 
-const windowMap = document.querySelector('.map__canvas');
-
 const templateCard = document
   .querySelector('#card')
   .content.querySelector('.popup');

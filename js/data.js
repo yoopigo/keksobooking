@@ -5,7 +5,7 @@
 
 import { getRandomArrayElement, randomMassiveElements } from './util.js';
 
-const COUNT = 1;
+const COUNT = 10;
 
 const TYPE = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 
@@ -92,7 +92,7 @@ const createProfile = () => {
       },
       offer: {
         title: 'Лучший номер ' + i,
-        address: _.random(1.1, 9.9) + ', ' + _.random(1.2, 9.9),
+        address: _.random(35.417, 35.941) + ', ' + _.random(139.694, 140.187),
         price: _.random(PRICE.MIN, PRICE.MAX),
         type: getRandomArrayElement(TYPE),
         rooms: _.random(ROOMS.MIN, ROOMS.MAX),
