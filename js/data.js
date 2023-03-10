@@ -56,7 +56,7 @@ const PRICE = {
 
 const LOCATIONX = {
   MIN: 35.65,
-  MAX: 35.7,
+  MAX: 35.72,
 };
 
 const LOCATIONY = {
@@ -92,7 +92,6 @@ const createProfile = () => {
       },
       offer: {
         title: 'Лучший номер ' + i,
-        address: _.random(35.417, 35.941) + ', ' + _.random(139.694, 140.187),
         price: _.random(PRICE.MIN, PRICE.MAX),
         type: getRandomArrayElement(TYPE),
         rooms: _.random(ROOMS.MIN, ROOMS.MAX),
@@ -106,5 +105,7 @@ const createProfile = () => {
     });
   }
 };
+
+createProfile();
 
 export { createProfile, similarProfile };
