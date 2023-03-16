@@ -105,7 +105,3 @@ const createProfile = () => {
     });
   }
 };
-
-createProfile();
-
-export { createProfile, similarProfile };
