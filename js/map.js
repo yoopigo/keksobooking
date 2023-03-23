@@ -133,9 +133,15 @@ let generation = (data) => {
       newElement.querySelector('.popup__text--time').classList.add('hidden');
     }
 
-    newElement.querySelector('.popup__features').textContent = offer.features;
-    if (!offer.features || offer.features === 0) {
-      newElement.querySelector('.popup__features').classList.add('hidden');
+    if (offer.features) {
+      const featuresList = newElement.querySelector('.popup__features');
+      const featuresItems = featuresList.querySelectorAll('.popup__feature');
+      for (const featureItem of featuresItems) {
+        const featureName = featureItem.classList[1].split('--')[1];
+        if (offer.features.includes(featureName)) {
+          featureItem.classList.add('hidden');
+        }
+      }
     }
 
     newElement.querySelector('.popup__description').textContent =
