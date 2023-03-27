@@ -8,3 +8,4 @@ import './scenarios.js';
 import './map.js';
 import './validation.js';
 import './server.js';
+import './filtration.js';
