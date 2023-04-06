@@ -87,7 +87,7 @@ let generation = (data) => {
     .querySelector('#card')
     .content.querySelector('.popup');
 
-  data.forEach(({ location, offer, author }) => {
+  data.slice().forEach(({ location, offer, author }) => {
     const newElement = templateCard.cloneNode(true);
 
     newElement.querySelector('.popup__title').textContent = offer.title;
