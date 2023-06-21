@@ -82,12 +82,18 @@ mainPinMarker.on('move', (evt) => {
 
 // Добавление остальных меток и балунов к ним
 
+let markers = [];
+
 let generation = (data) => {
+  markers.forEach((marker) => {
+    marker.remove();
+  });
+  markers = [];
   const templateCard = document
     .querySelector('#card')
     .content.querySelector('.popup');
 
-  data.slice().forEach(({ location, offer, author }) => {
+  data.slice(0, 10).forEach(({ location, offer, author }) => {
     const newElement = templateCard.cloneNode(true);
 
     newElement.querySelector('.popup__title').textContent = offer.title;
@@ -193,6 +199,7 @@ let generation = (data) => {
       }
     );
     marker.addTo(map).bindPopup(newElement);
+    markers.push(marker);
   });
 };
 

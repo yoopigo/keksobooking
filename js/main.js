@@ -14,6 +14,20 @@ import './filtration.js';
 import { generation } from './map.js';
 import { getData } from './server.js';
 
-getData((data) => {
-  generation(data.slice(0, adCounter));
+let data = [];
+
+getData((responseData) => {
+  data = responseData;
+  generation(data);
+});
+
+const housingTypeSelect = document.querySelector('#housing-type');
+
+const typeFilterChange = housingTypeSelect.addEventListener('change', () => {
+  const selectedType = housingTypeSelect.value;
+  let filteredData = data;
+  if (selectedType !== 'any') {
+    filteredData = data.filter((item) => item.offer.type === selectedType);
+  }
+  generation(filteredData);
 });
