@@ -3,6 +3,7 @@ const filterData = (
   selectedType,
   selectedPrice,
   selectedRoom,
+  selectedFeatures,
   selectedGuests
 ) => {
   let filteredData = data;
@@ -54,6 +55,15 @@ const filterData = (
         filteredData = filteredData.filter((item) => item.offer.guests == 2);
         break;
     }
+  }
+
+  if (selectedFeatures.length > 0) {
+    filteredData = filteredData.filter((item) => {
+      const itemFeatures = item.offer.features || [];
+      return !selectedFeatures.some((feature) =>
+        itemFeatures.includes(feature)
+      );
+    });
   }
 
   return filteredData;

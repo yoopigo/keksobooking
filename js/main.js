@@ -23,11 +23,15 @@ const filterChange = () => {
   const selectedPrice = housingPriceSelect.value;
   const selectedRoom = housingRoomSelect.value;
   const selectedGuest = housingGuestSelect.value;
+  const selectedFeatures = Array.from(
+    document.querySelectorAll('input[name="features"]:checked')
+  ).map((checkbox) => checkbox.value);
   const filteredData = filterData(
     data,
     selectedType,
     selectedPrice,
     selectedRoom,
+    selectedFeatures,
     selectedGuest
   );
   generation(filteredData);
@@ -37,6 +41,8 @@ housingTypeSelect.addEventListener('change', filterChange);
 housingPriceSelect.addEventListener('change', filterChange);
 housingRoomSelect.addEventListener('change', filterChange);
 housingGuestSelect.addEventListener('change', filterChange);
+const housingFeatures = document.querySelector('#housing-features');
+housingFeatures.addEventListener('change', filterChange);
 
 let data = [];
 
