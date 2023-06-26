@@ -105,5 +105,3 @@ const createProfile = () => {
     });
   }
 };
-
-export { FEATURES };

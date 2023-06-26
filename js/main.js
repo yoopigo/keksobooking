@@ -13,10 +13,13 @@ import { generation } from './map.js';
 import { getData } from './server.js';
 import { filterData } from './filtration.js';
 
+const RERENDER_DELAY = 500;
+
 const housingTypeSelect = document.querySelector('#housing-type');
 const housingPriceSelect = document.querySelector('#housing-price');
 const housingRoomSelect = document.querySelector('#housing-rooms');
 const housingGuestSelect = document.querySelector('#housing-guests');
+const housingFeatures = document.querySelector('#housing-features');
 
 const filterChange = () => {
   const selectedType = housingTypeSelect.value;
@@ -37,12 +40,13 @@ const filterChange = () => {
   generation(filteredData);
 };
 
-housingTypeSelect.addEventListener('change', filterChange);
-housingPriceSelect.addEventListener('change', filterChange);
-housingRoomSelect.addEventListener('change', filterChange);
-housingGuestSelect.addEventListener('change', filterChange);
-const housingFeatures = document.querySelector('#housing-features');
-housingFeatures.addEventListener('change', filterChange);
+const debouncedFilterChange = _.debounce(filterChange, RERENDER_DELAY);
+
+housingTypeSelect.addEventListener('change', debouncedFilterChange);
+housingPriceSelect.addEventListener('change', debouncedFilterChange);
+housingRoomSelect.addEventListener('change', debouncedFilterChange);
+housingGuestSelect.addEventListener('change', debouncedFilterChange);
+housingFeatures.addEventListener('change', debouncedFilterChange);
 
 let data = [];
 
