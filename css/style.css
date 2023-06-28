@@ -570,6 +570,8 @@ fieldset {
 .ad-form__photo {
   margin-right: 10px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 
   width: 70px;
   height: 70px;
@@ -1019,4 +1021,8 @@ fieldset {
 
 .hidden {
   display: none;
+}
+
+.ad-form__photo-img {
+  align-self: center;
 }
