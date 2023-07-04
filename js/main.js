@@ -10,6 +10,7 @@ import './validation.js';
 import './server.js';
 import './filtration.js';
 import './photo.js';
+import './formValidations.js';
 import { generation } from './map.js';
 import { getData } from './server.js';
 import { filterData } from './filtration.js';

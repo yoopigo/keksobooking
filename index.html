@@ -54,8 +54,8 @@
               <option value="high">от 50000&#x20bd;</option>
             </select>
             <select name="housing-rooms" id="housing-rooms" class="map__filter">
-              <option value="any" selected>Любое число комнат</option>
-              <option value="1">Одна комната</option>
+              <option value="any">Любое число комнат</option>
+              <option value="1" selected>Одна комната</option>
               <option value="2">Две комнаты</option>
               <option value="3">Три комнаты</option>
             </select>
@@ -64,9 +64,9 @@
               id="housing-guests"
               class="map__filter"
             >
-              <option value="any" selected>Любое число гостей</option>
+              <option value="any">Любое число гостей</option>
               <option value="2">Два гостя</option>
-              <option value="1">Один гость</option>
+              <option value="1" selected>Один гость</option>
               <option value="0">Не для гостей</option>
             </select>
             <fieldset id="housing-features" class="map__features">
@@ -166,6 +166,8 @@
                   alt="Аватар пользователя"
                   width="40"
                   height="44"
+                  class="map_photo"
+                  ;
                 />
               </div>
               <div class="ad-form__field">
@@ -224,8 +226,9 @@
               id="price"
               name="price"
               type="number"
-              placeholder="5000"
+              placeholder="Мин. цена 1000"
               required
+              min="1000"
               max="1000000"
             />
           </fieldset>

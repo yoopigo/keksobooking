@@ -72,7 +72,9 @@ mainPinMarker.addTo(map);
 
 const inputAdress = document.querySelector('#address');
 inputAdress.value = '35.69325, 139.76969';
-inputAdress.setAttribute('disabled', true);
+inputAdress.setAttribute('readonly', true);
+
+const balloonPosition = document.querySelector('#balloonPosition');
 
 mainPinMarker.on('move', (evt) => {
   const marker = evt.target;
