@@ -25,7 +25,7 @@ typeSelect.addEventListener('change', (evt) => {
       break;
   }
   priceInput.min = minPrice;
-  priceInput.placeholder = minPrice;
+  priceInput.placeholder = `Мин. цена ${minPrice}`;
 });
 
 //Синхронизация  времени выезда - отъезда
