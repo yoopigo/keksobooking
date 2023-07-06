@@ -1,13 +1,10 @@
 const adForm = document.querySelector('.ad-form');
 const fieldsets = document.querySelectorAll('fieldset');
 
-const mapFilters = document.querySelector('.map__filters-container');
+const mapFilters = document.querySelector('.map__filters');
 const selects = document.querySelectorAll('select');
 
 //Добавление атрибута dissabled на fieldset и select, а так же блоки с классами ad-form и map__filters-container.
-
-adForm.classList.add('ad-form--disabled');
-mapFilters.classList.add('ad-form--disabled');
 
 fieldsets.forEach((fieldset) => {
   fieldset.setAttribute('disabled', true);

@@ -1,6 +1,8 @@
 const roomNumberSelect = document.querySelector('#room_number');
 const capacitySelect = document.querySelector('#capacity');
 
+const
+
 roomNumberSelect.addEventListener('change', () => {
   const roomNumber = parseInt(roomNumberSelect.value, 10);
   const capacityOptions = capacitySelect.querySelectorAll('option');
@@ -32,6 +34,3 @@ roomNumberSelect.addEventListener('change', () => {
     capacitySelect.querySelector('option[value="3"]').disabled = false;
   }
 });
-
-// Вызов обработчика события change для установки значений по умолчанию
-roomNumberSelect.dispatchEvent(new Event('change'));

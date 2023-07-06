@@ -251,6 +251,10 @@ fieldset {
   font-weight: 700;
 }
 
+.ad-form--disabled {
+  opacity: 0.3;
+}
+
 .ad-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -261,13 +265,13 @@ fieldset {
   width: 100%;
 }
 
-.ad-form--disabled {
-  opacity: 0.3;
-}
-
 .ad-form-header {
   width: 100%;
   padding-bottom: 20px;
+}
+
+.input-error {
+  border: 2px solid red;
 }
 
 .ad-form-header__title {
