@@ -1,8 +1,6 @@
 const roomNumberSelect = document.querySelector('#room_number');
 const capacitySelect = document.querySelector('#capacity');
 
-const
-
 roomNumberSelect.addEventListener('change', () => {
   const roomNumber = parseInt(roomNumberSelect.value, 10);
   const capacityOptions = capacitySelect.querySelectorAll('option');
