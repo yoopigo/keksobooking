@@ -49,7 +49,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //Добавление меток
 
 const mainPinIcon = L.icon({
-  iconUrl: '/img/leaflet/main-pin.svg',
+  iconUrl: '../img/leaflet/main-pin.svg',
   iconSize: [52, 52],
   iconAnchor: [26, 52],
 });
@@ -185,7 +185,7 @@ let generation = (data) => {
     }
 
     const icon = L.icon({
-      iconUrl: '/img/pin.svg',
+      iconUrl: '../img/pin.svg',
       iconSize: [40, 40],
       iconAnchor: [20, 40],
     });
