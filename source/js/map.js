@@ -1,3 +1,5 @@
+import L from 'leaflet';
+
 const adForm = document.querySelector('.ad-form');
 const fieldsets = document.querySelectorAll('fieldset');
 
